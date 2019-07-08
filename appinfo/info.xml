@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<info xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="https://apps.nextcloud.com/schema/apps/info.xsd">
+    <id>hidesidebars</id>
+    <name>Hide sidebars</name>
+    <summary>Hide sidebars</summary>
+    <description><![CDATA[Hide sidebars]]></description>
+    <version>0.0.1</version>
+    <licence>agpl</licence>
+    <author mail="rstofko@gmail.com" >Radoslav Stofko</author>
+    <namespace>HideSidebars</namespace>
+    <category>tools</category>
+    <bugs>http://todo.cz</bugs>
+    <dependencies>
+        <nextcloud min-version="15" max-version="17"/>
+    </dependencies>
+</info>
