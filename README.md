@@ -1,14 +1,15 @@
 # Hide sidebars
 
-Place this app in **nextcloud/apps/** and enable
+Hide left sidebar and top header bar for use in iframe for example or some other scenarios.
 
-Add `?` or `&` and `hide-sidebars` to nextcloud url.
+## Usage 
+Add `hide-sidebars` after `?` as query parameter to nextcloud url or with `dir` parameter after `&`.
 
-For example:
+Examples:
 ```
-http://nextcloud.example.com/index.php/apps/files/?dir=/&hide-sidebars
+http://nextcloud.example.com/index.php/apps/files/?hide-sidebars
+http://nextcloud.example.com/index.php/apps/files/?dir=/New%20folder&hide-sidebars
 ```
 
----
-
-Icon from https://www.iconfinder.com/iconsets/feather
+## Screenshot
+![Tab view in sidebar](.readme/hidesidebars.png)
