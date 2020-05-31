@@ -11,6 +11,9 @@
     <namespace>HideSidebars</namespace>
     <category>tools</category>
     <bugs>https://github.com/pointcz/hidesidebars/issues</bugs>
+    <website>https://github.com/pointcz/hidesidebars</website>
+    <repository>https://github.com/pointcz/hidesidebars</repository>
+    <screenshot>https://raw.githubusercontent.com/pointcz/hidesidebars/master/.readme/hidesidebars.png</screenshot>
     <dependencies>
         <nextcloud min-version="15" max-version="17"/>
     </dependencies>
