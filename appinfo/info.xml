@@ -4,8 +4,19 @@
     <id>hidesidebars</id>
     <name>Hide sidebars</name>
     <summary>Hide left sidebar and top header bar for use in iframe or some other scenarios.</summary>
-    <description><![CDATA[Hide sidebars]]></description>
-    <version>1.0.3</version>
+    <description><![CDATA[# Hide sidebars
+
+Hide left sidebar and top header bar for use in iframe for example or some other scenarios.
+
+## Usage
+Add `hide-sidebars` after `?` as query parameter to nextcloud url or with `dir` parameter after `&`.
+
+Examples:
+```
+http://nextcloud.example.com/index.php/apps/files/?hide-sidebars
+http://nextcloud.example.com/index.php/apps/files/?dir=/New%20folder&hide-sidebars
+```]]></description>
+    <version>1.0.4</version>
     <licence>agpl</licence>
     <author mail="rstofko@gmail.com" >Radoslav Stofko</author>
     <namespace>HideSidebars</namespace>
