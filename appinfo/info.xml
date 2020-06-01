@@ -16,7 +16,7 @@ Examples:
 http://nextcloud.example.com/index.php/apps/files/?hide-sidebars
 http://nextcloud.example.com/index.php/apps/files/?dir=/New%20folder&hide-sidebars
 ```]]></description>
-    <version>1.0.5</version>
+    <version>1.0.6</version>
     <licence>agpl</licence>
     <author mail="rstofko@gmail.com" >Radoslav Stofko</author>
     <namespace>HideSidebars</namespace>
@@ -26,6 +26,6 @@ http://nextcloud.example.com/index.php/apps/files/?dir=/New%20folder&hide-sideba
     <repository>https://github.com/pointcz/hidesidebars</repository>
     <screenshot>https://raw.githubusercontent.com/pointcz/hidesidebars/master/.readme/hidesidebars.png</screenshot>
     <dependencies>
-        <nextcloud min-version="15" max-version="18"/>
+        <nextcloud min-version="15" max-version="19"/>
     </dependencies>
 </info>
