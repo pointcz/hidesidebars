@@ -1,6 +1,4 @@
 $(document).ready(function () {
-	if (!OCA.Files) return;
-
 	if (getParameterByName('hide-sidebars') !== null) {
 		hideSidebars();
 	}
@@ -16,12 +14,12 @@ $(document).ready(function () {
 	}
 
 	function hideSidebars () {
-		$('#header').hide();
-		$('#app-navigation').hide();
+		$('#header,#app-navigation,#app-navigation-vue,.app-navigation-toggle').hide();
 		$('#app-content').css('margin-left', 0);
-		$('#content').css('padding-top', 0);
-		$('#controls').css('top', 0);
+		$('#content,#content-vue').css('padding-top', 0);
+		$('#controls').css('top', 0).css('padding-left', 0);
 		$('#filestable thead').css('top', '44px');
+		$('#app-navigation-toggle').css('z-index', 0);
 	}
 
 });
