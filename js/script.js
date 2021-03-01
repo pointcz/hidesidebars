@@ -1,9 +1,9 @@
-$(document).ready(function () {
+window.addEventListener('DOMContentLoaded', function(event) {
 	if (getParameterByName('hide-sidebars') !== null) {
 		hideSidebars();
 	}
 
-	function getParameterByName (name, url) {
+	function getParameterByName(name, url) {
 		if (!url) url = window.location.href;
 		name = name.replace(/[\[\]]/g, "\\$&");
 		var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
@@ -13,13 +13,26 @@ $(document).ready(function () {
 		return decodeURIComponent(results[2].replace(/\+/g, " "));
 	}
 
-	function hideSidebars () {
-		$('#header,#app-navigation,#app-navigation-vue,.app-navigation-toggle').hide();
-		$('#app-content').css('margin-left', 0);
-		$('#content,#content-vue').css('padding-top', 0);
-		$('#controls').css('top', 0).css('padding-left', 0);
-		$('#filestable thead').css('top', '44px');
-		$('#app-navigation-toggle').css('z-index', 0);
+	function hideSidebars() {
+		var changeStyles = [
+			{el: '#header', style: 'display', value: 'none'},
+			{el: '#app-navigation', style: 'display', value: 'none'},
+			{el: '#app-navigation-vue', style: 'display', value: 'none'},
+			{el: '.app-navigation-toggle', style: 'display', value: 'none'},
+			{el: '#app-content', style: 'marginLeft', value: 0},
+			{el: '#content', style: 'paddingTop', value: 0},
+			{el: '#content-vue', style: 'paddingTop', value: 0},
+			{el: '#controls', style: 'top', value: 0},
+			{el: '#controls', style: 'paddingLeft', value: 0},
+			{el: '#filestable thead', style: 'top', value: '44px'},
+			{el: '#app-navigation-toggle', style: 'zIndex', value: 0},
+		];
+		for (var i = 0; i < changeStyles.length; i += 1) {
+			var element = document.querySelectorAll(changeStyles[i].el);
+			if (element.length) {
+				element[0].style[changeStyles[i].style] = changeStyles[i].value;
+			}
+		}
 	}
 
 });
