@@ -4,6 +4,7 @@ Hide left sidebar and top header bar for use in iframe for example or some other
 
 ## Usage 
 Add `hide-sidebars` after `?` as query parameter to nextcloud url or with `dir` parameter after `&`.
+If you need to hide only left or top menu you can use `hide-left-menu` or `hide-top-menu`.
 
 Examples:
 ```
