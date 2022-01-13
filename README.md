@@ -14,3 +14,14 @@ http://nextcloud.example.com/index.php/apps/files/?dir=/New%20folder&hide-sideba
 
 ## Screenshot
 ![Tab view in sidebar](.readme/hidesidebars.png)
+
+## iframe
+
+This app from version 2.0.0 brings new config parameter `addAllowedFrameAncestorDomain`. For usage in iframe you must update `lib/public/AppFramework/Http/ContentSecurityPolicy.php` manually
+or use this new parameter `addAllowedFrameAncestorDomain` in `config.php`
+
+```
+...
+'addAllowedFrameAncestorDomain' => '*.example.com:*'
+...
+```

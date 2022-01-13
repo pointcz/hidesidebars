@@ -1,3 +1,5 @@
+console.log('hidesidebar script was loaded');
+
 window.addEventListener('DOMContentLoaded', function(event) {
         if (getParameterByName('hide-sidebars') !== null) {
                 hideTopMenu();
