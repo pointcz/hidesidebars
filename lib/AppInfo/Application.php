@@ -5,10 +5,12 @@ namespace OCA\Hidesidebars\AppInfo;
 use OCA\Files\Event\LoadAdditionalScriptsEvent;
 use OCA\Hidesidebars\Listener\CSPListener;
 use OCA\Hidesidebars\Listener\HidesidebarScripts;
+use OCA\Hidesidebars\Listener\PublicHidesidebarScripts;
 use OCP\AppFramework\App;
 use OCP\AppFramework\Bootstrap\IBootContext;
 use OCP\AppFramework\Bootstrap\IBootstrap;
 use OCP\AppFramework\Bootstrap\IRegistrationContext;
+use OCP\AppFramework\Http\Events\BeforeTemplateRenderedEvent;
 use OCP\Security\CSP\AddContentSecurityPolicyEvent;
 
 class Application extends App implements IBootstrap
@@ -23,6 +25,7 @@ class Application extends App implements IBootstrap
 
     public function register(IRegistrationContext $context): void
     {
+        $context->registerEventListener(BeforeTemplateRenderedEvent::class, PublicHidesidebarScripts::class);
         $context->registerEventListener(LoadAdditionalScriptsEvent::class, HidesidebarScripts::class);
         $context->registerEventListener(AddContentSecurityPolicyEvent::class, CSPListener::class);
     }

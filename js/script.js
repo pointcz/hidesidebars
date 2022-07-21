@@ -34,6 +34,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#content-vue', style: 'paddingTop', value: 0},
                         {el: '#controls', style: 'top', value: 0},
                         {el: '#filestable thead', style: 'top', value: '44px'},
+                        {el: '#body-public #content', style: 'min-height', value: '100%'},
+                        {el: 'footer', style: 'display', value: 'none'},
                 ];
                 for (var i = 0; i < changeStyles.length; i += 1) {
                         var element = document.querySelectorAll(changeStyles[i].el);
