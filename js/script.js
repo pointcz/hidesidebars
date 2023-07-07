@@ -24,6 +24,19 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
+        function applyStyleChanges(changeStyles) {
+                for (var i = 0; i < changeStyles.length; i += 1) {
+                        var element = document.querySelectorAll(changeStyles[i].el);
+                        if (element.length) {
+                                if (changeStyles[i].style.startsWith('--')) { // Properties are changed differently
+                                        element[0].style.setProperty(changeStyles[i].style, changeStyles[i].value);
+                                } else {
+                                        element[0].style[changeStyles[i].style] = changeStyles[i].value;
+                                }
+                        }
+                }
+        }
+
         function hideTopMenu() {
                 var changeStyles = [
                         {el: '#header', style: 'display', value: 'none'},
@@ -31,18 +44,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#app-navigation', style: 'top', value: '0'},
                         {el: '#app-navigation-vue', style: 'height', value: '100vh'},
                         {el: '#content', style: 'paddingTop', value: 0},
+                        {el: '#content', style: 'marginTop', value: "var(--body-container-margin)"},
+                        {el: ':root', style: '--body-height', value: "calc(100% - env(safe-area-inset-bottom) - var(--body-container-margin) * 2)"},
                         {el: '#content-vue', style: 'paddingTop', value: 0},
                         {el: '#controls', style: 'top', value: 0},
                         {el: '#filestable thead', style: 'top', value: '44px'},
                         {el: '#body-public #content', style: 'min-height', value: '100%'},
                         {el: 'footer', style: 'display', value: 'none'},
                 ];
-                for (var i = 0; i < changeStyles.length; i += 1) {
-                        var element = document.querySelectorAll(changeStyles[i].el);
-                        if (element.length) {
-                                element[0].style[changeStyles[i].style] = changeStyles[i].value;
-                        }
-                }
+                applyStyleChanges(changeStyles);
         }
 
         function hideLeftMenu() {
@@ -54,12 +64,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#controls', style: 'paddingLeft', value: 0},
                         {el: '#app-navigation-toggle', style: 'zIndex', value: 0},
                 ];
-                for (var i = 0; i < changeStyles.length; i += 1) {
-                        var element = document.querySelectorAll(changeStyles[i].el);
-                        if (element.length) {
-                                element[0].style[changeStyles[i].style] = changeStyles[i].value;
-                        }
-                }
+                applyStyleChanges(changeStyles);
         }
 
 });
