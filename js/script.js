@@ -48,6 +48,8 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#content-vue', style: 'paddingTop', value: 0},
                         {el: '#content-vue', style: 'marginTop', value: "var(--body-container-margin)"},
                         {el: ':root', style: '--body-height', value: "calc(100% - env(safe-area-inset-bottom) - var(--body-container-margin) * 2)"},
+                        {el: '.app-navigation__content', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'}, // Prevent settings button in sidebar too low
+                        {el: '#app-navigation-vue', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'},
                         {el: '#controls', style: 'top', value: 0},
                         {el: '#filestable thead', style: 'top', value: '44px'},
                         {el: '#body-public #content', style: 'min-height', value: '100%'},
