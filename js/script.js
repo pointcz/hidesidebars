@@ -38,13 +38,12 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 }
         }
 
-
         function contentChanges() {
                 applyStyleChanges([
-												{el: '#content', style: 'width', value: '100%'},
-												{el: '#content-vue', style: 'width', value: '100%'},
-												{el: '#content', style: 'border-radius', value: '0'},
-												{el: '#content-vue', style: 'border-radius', value: '0'},
+                        {el: '#content', style: 'width', value: '100%'},
+									      {el: '#content-vue', style: 'width', value: '100%'},
+									      {el: '#content', style: 'border-radius', value: '0'},
+									      {el: '#content-vue', style: 'border-radius', value: '0'},
 								]);
         }
 
@@ -68,10 +67,10 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
 								if (onlyTopMenu) {
 												applyStyleChanges([
-														{el: '#content', style: 'margin', value: 0},
-                            {el: '#content-vue', style: 'margin', value: 0},
-														{el: '#content', style: 'height', value: '100%'},
-                          	{el: '#content-vue', style: 'height', value: '100%'},
+												        {el: '#content', style: 'margin', value: 0},
+                                {el: '#content-vue', style: 'margin', value: 0},
+                                {el: '#content', style: 'height', value: '100%'},
+                                {el: '#content-vue', style: 'height', value: '100%'},
 												])
 								}
         }
@@ -96,5 +95,4 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         ]);
                 }
         }
-
 });
