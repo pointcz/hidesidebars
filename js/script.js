@@ -25,19 +25,26 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 return decodeURIComponent(results[2].replace(/\+/g, " "));
         }
 
-        function applyChanges(changeStyles) {
+        function applyStyleChanges(changeStyles) {
                 for (var i = 0; i < changeStyles.length; i += 1) {
                         var element = document.querySelectorAll(changeStyles[i].el);
                         if (element.length) {
-                                element[0].style[changeStyles[i].style] = changeStyles[i].value;
+                                if (changeStyles[i].style.startsWith('--')) { // Properties are changed differently
+                                        element[0].style.setProperty(changeStyles[i].style, changeStyles[i].value);
+                                } else {
+                                        element[0].style[changeStyles[i].style] = changeStyles[i].value;
+                                }
                         }
                 }
         }
 
+
         function contentChanges() {
-                applyChanges([
+                applyStyleChanges([
 												{el: '#content', style: 'width', value: '100%'},
+												{el: '#content-vue', style: 'width', value: '100%'},
 												{el: '#content', style: 'border-radius', value: '0'},
+												{el: '#content-vue', style: 'border-radius', value: '0'},
 								]);
         }
 
@@ -49,17 +56,22 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#app-navigation-vue', style: 'height', value: '100vh'},
                         {el: '#content', style: 'paddingTop', value: 0},
                         {el: '#content-vue', style: 'paddingTop', value: 0},
+                        {el: ':root', style: '--body-height', value: "calc(100% - env(safe-area-inset-bottom) - var(--body-container-margin) * 2)"},
+                        {el: '.app-navigation__content', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'}, // Prevent settings button in sidebar too low
+                        {el: '#app-navigation-vue', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'},
                         {el: '#controls', style: 'top', value: 0},
                         {el: '#filestable thead', style: 'top', value: '44px'},
                         {el: '#body-public #content', style: 'min-height', value: '100%'},
                         {el: 'footer', style: 'display', value: 'none'},
                 ];
-                applyChanges(changeStyles);
+                applyStyleChanges(changeStyles);
 
 								if (onlyTopMenu) {
-												applyChanges([
+												applyStyleChanges([
 														{el: '#content', style: 'margin', value: 0},
+                            {el: '#content-vue', style: 'margin', value: 0},
 														{el: '#content', style: 'height', value: '100%'},
+                          	{el: '#content-vue', style: 'height', value: '100%'},
 												])
 								}
         }
@@ -72,15 +84,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#app-content', style: 'marginLeft', value: 0},
                         {el: '#controls', style: 'paddingLeft', value: 0},
                         {el: '#app-navigation-toggle', style: 'zIndex', value: 0},
-                        {el: '#content', style: 'marginLeft', value: 0},
-                        {el: '#content', style: 'height', value: 'calc(100% - 50px)'},
                 ];
-                applyChanges(changeStyles);
+                applyStyleChanges(changeStyles);
 
                 if (onlyLeftMenu) {
-                        applyChanges([
+                        applyStyleChanges([
                                 {el: '#content', style: 'marginLeft', value: 0},
+                                {el: '#content-vue', style: 'marginLeft', value: 0},
                                 {el: '#content', style: 'height', value: 'calc(100% - 50px)'},
+                                {el: '#content-vue', style: 'height', value: 'calc(100% - 50px)'},
                         ]);
                 }
         }
