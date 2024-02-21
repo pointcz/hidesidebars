@@ -4,14 +4,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
         if (getParameterByName('hide-sidebars') !== null) {
                 hideTopMenu();
                 hideLeftMenu();
+								contentChanges();
         }
 
         if (getParameterByName('hide-top-menu') !== null) {
-                hideTopMenu();
+                hideTopMenu(true);
         }
 
         if (getParameterByName('hide-left-menu') !== null) {
-                hideLeftMenu();
+                hideLeftMenu(true);
         }
 
         function getParameterByName(name, url) {
@@ -37,16 +38,24 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 }
         }
 
-        function hideTopMenu() {
+
+        function contentChanges() {
+                applyStyleChanges([
+												{el: '#content', style: 'width', value: '100%'},
+												{el: '#content-vue', style: 'width', value: '100%'},
+												{el: '#content', style: 'border-radius', value: '0'},
+												{el: '#content-vue', style: 'border-radius', value: '0'},
+								]);
+        }
+
+        function hideTopMenu(onlyTopMenu) {
                 var changeStyles = [
                         {el: '#header', style: 'display', value: 'none'},
                         {el: '#app-navigation-vue', style: 'top', value: '0'},
                         {el: '#app-navigation', style: 'top', value: '0'},
                         {el: '#app-navigation-vue', style: 'height', value: '100vh'},
                         {el: '#content', style: 'paddingTop', value: 0},
-                        {el: '#content', style: 'marginTop', value: "var(--body-container-margin)"},
                         {el: '#content-vue', style: 'paddingTop', value: 0},
-                        {el: '#content-vue', style: 'marginTop', value: "var(--body-container-margin)"},
                         {el: ':root', style: '--body-height', value: "calc(100% - env(safe-area-inset-bottom) - var(--body-container-margin) * 2)"},
                         {el: '.app-navigation__content', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'}, // Prevent settings button in sidebar too low
                         {el: '#app-navigation-vue', style: 'height', value: 'calc(100vh - 2 * var(--body-container-margin))'},
@@ -56,9 +65,18 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: 'footer', style: 'display', value: 'none'},
                 ];
                 applyStyleChanges(changeStyles);
+
+								if (onlyTopMenu) {
+												applyStyleChanges([
+														{el: '#content', style: 'margin', value: 0},
+                            {el: '#content-vue', style: 'margin', value: 0},
+														{el: '#content', style: 'height', value: '100%'},
+                          	{el: '#content-vue', style: 'height', value: '100%'},
+												])
+								}
         }
 
-        function hideLeftMenu() {
+        function hideLeftMenu(onlyLeftMenu) {
                 var changeStyles = [
                         {el: '#app-navigation', style: 'display', value: 'none'},
                         {el: '#app-navigation-vue', style: 'display', value: 'none'},
@@ -68,6 +86,15 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#app-navigation-toggle', style: 'zIndex', value: 0},
                 ];
                 applyStyleChanges(changeStyles);
+
+                if (onlyLeftMenu) {
+                        applyStyleChanges([
+                                {el: '#content', style: 'marginLeft', value: 0},
+                                {el: '#content-vue', style: 'marginLeft', value: 0},
+                                {el: '#content', style: 'height', value: 'calc(100% - 50px)'},
+                                {el: '#content-vue', style: 'height', value: 'calc(100% - 50px)'},
+                        ]);
+                }
         }
 
 });

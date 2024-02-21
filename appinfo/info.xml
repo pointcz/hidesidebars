@@ -35,6 +35,6 @@ or use this new parameter `addAllowedFrameAncestorDomain` in `config.php`
     <repository>https://github.com/pointcz/hidesidebars</repository>
     <screenshot>https://raw.githubusercontent.com/pointcz/hidesidebars/master/.readme/hidesidebars.png</screenshot>
     <dependencies>
-        <nextcloud min-version="21" max-version="26"/>
+        <nextcloud min-version="21" max-version="27"/>
     </dependencies>
 </info>
