@@ -4,11 +4,10 @@ window.addEventListener('DOMContentLoaded', function(event) {
         if (getParameterByName('hide-sidebars') !== null) {
                 hideTopMenu();
                 hideLeftMenu();
-								contentChanges();
         }
 
         if (getParameterByName('hide-top-menu') !== null) {
-                hideTopMenu(true);
+                hideTopMenu();
         }
 
         if (getParameterByName('hide-left-menu') !== null) {
@@ -38,16 +37,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
                 }
         }
 
-        function contentChanges() {
-                applyStyleChanges([
-                        {el: '#content', style: 'width', value: '100%'},
-									      {el: '#content-vue', style: 'width', value: '100%'},
-									      {el: '#content', style: 'border-radius', value: '0'},
-									      {el: '#content-vue', style: 'border-radius', value: '0'},
-								]);
-        }
-
-        function hideTopMenu(onlyTopMenu) {
+        function hideTopMenu() {
                 var changeStyles = [
                         {el: '#header', style: 'display', value: 'none'},
                         {el: '#app-navigation-vue', style: 'top', value: '0'},
@@ -62,17 +52,17 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#filestable thead', style: 'top', value: '44px'},
                         {el: '#body-public #content', style: 'min-height', value: '100%'},
                         {el: 'footer', style: 'display', value: 'none'},
+                        {el: '#content', style: 'width', value: '100%'},
+                        {el: '#content-vue', style: 'width', value: '100%'},
+                        {el: '#content', style: 'border-radius', value: '0'},
+                        {el: '#content-vue', style: 'border-radius', value: '0'},
+                        {el: '#content', style: 'margin', value: 0},
+                        {el: '#content-vue', style: 'margin', value: 0},
+                        {el: '#content', style: 'height', value: '100%'},
+                        {el: '#content-vue', style: 'height', value: '100%'},
+                        {el: '#app-navigation-vue', style: 'height', value: '100%'},
                 ];
                 applyStyleChanges(changeStyles);
-
-								if (onlyTopMenu) {
-												applyStyleChanges([
-												        {el: '#content', style: 'margin', value: 0},
-                                {el: '#content-vue', style: 'margin', value: 0},
-                                {el: '#content', style: 'height', value: '100%'},
-                                {el: '#content-vue', style: 'height', value: '100%'},
-												])
-								}
         }
 
         function hideLeftMenu(onlyLeftMenu) {
@@ -83,6 +73,10 @@ window.addEventListener('DOMContentLoaded', function(event) {
                         {el: '#app-content', style: 'marginLeft', value: 0},
                         {el: '#controls', style: 'paddingLeft', value: 0},
                         {el: '#app-navigation-toggle', style: 'zIndex', value: 0},
+                        {el: '#content', style: 'width', value: '100%'},
+                        {el: '#content-vue', style: 'width', value: '100%'},
+                        {el: '#content', style: 'border-radius', value: '0'},
+                        {el: '#content-vue', style: 'border-radius', value: '0'},
                 ];
                 applyStyleChanges(changeStyles);
 
