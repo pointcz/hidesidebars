@@ -67,6 +67,7 @@ window.addEventListener('DOMContentLoaded', function(event) {
 
         function hideLeftMenu(onlyLeftMenu) {
                 var changeStyles = [
+                        {el: '.app-navigation', style: 'display', value: 'none'},
                         {el: '#app-navigation', style: 'display', value: 'none'},
                         {el: '#app-navigation-vue', style: 'display', value: 'none'},
                         {el: '.app-navigation-toggle', style: 'display', value: 'none'},
