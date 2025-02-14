@@ -25,7 +25,7 @@ Simply add the following line to your `config/config.php`:
 'addAllowedFrameAncestorDomain' => '*.example.com:*'
 ...
 ```]]></description>
-    <version>2.2.5</version>
+    <version>2.2.6</version>
     <licence>agpl</licence>
     <author mail="rstofko@gmail.com" >Radoslav Stofko</author>
     <category>customization</category>
@@ -34,6 +34,6 @@ Simply add the following line to your `config/config.php`:
     <repository>https://github.com/pointcz/hidesidebars</repository>
     <screenshot>https://raw.githubusercontent.com/pointcz/hidesidebars/master/.readme/hidesidebars.png</screenshot>
     <dependencies>
-        <nextcloud min-version="21" max-version="29"/>
+        <nextcloud min-version="21" max-version="30"/>
     </dependencies>
 </info>
