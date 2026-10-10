@@ -25,3 +25,9 @@ Simply add the following line to your `config/config.php`:
 'addAllowedFrameAncestorDomain' => '*.example.com:*'
 ...
 ```
+
+If you run Nextcloud All-in-One (AIO), `config.php` lives inside the container, so set the value with `occ` on the host instead:
+
+```
+sudo docker exec --user www-data -it nextcloud-aio-nextcloud php occ config:system:set addAllowedFrameAncestorDomain --value="*.example.com:*"
+```

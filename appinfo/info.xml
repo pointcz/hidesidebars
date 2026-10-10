@@ -24,8 +24,14 @@ Simply add the following line to your `config/config.php`:
 ...
 'addAllowedFrameAncestorDomain' => '*.example.com:*'
 ...
+```
+
+For Nextcloud All-in-One (AIO) set it with `occ` on the host:
+
+```
+sudo docker exec --user www-data -it nextcloud-aio-nextcloud php occ config:system:set addAllowedFrameAncestorDomain --value="*.example.com:*"
 ```]]></description>
-    <version>2.2.7</version>
+    <version>2.2.8</version>
     <licence>agpl</licence>
     <author mail="rstofko@gmail.com" >Radoslav Stofko</author>
     <category>customization</category>
@@ -34,6 +40,6 @@ Simply add the following line to your `config/config.php`:
     <repository>https://github.com/pointcz/hidesidebars</repository>
     <screenshot>https://raw.githubusercontent.com/pointcz/hidesidebars/master/.readme/hidesidebars.png</screenshot>
     <dependencies>
-        <nextcloud min-version="21" max-version="31"/>
+        <nextcloud min-version="21" max-version="35"/>
     </dependencies>
 </info>
